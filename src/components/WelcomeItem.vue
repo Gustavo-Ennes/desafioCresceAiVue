@@ -12,8 +12,11 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .item {
+  .details {
+    background-color: #333;
+  }
   margin-top: 2rem;
   display: flex;
 }
