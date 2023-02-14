@@ -5,7 +5,7 @@
         <h1>or make your own team</h1>
       </div>
       <div class="col-12 p-2">
-        <button class="btn btn-success">Make your team</button>
+        <button class="btn btn-success" @click="$router.push('/poketeam/')">Make your team</button>
       </div>
     </div>
   </div>

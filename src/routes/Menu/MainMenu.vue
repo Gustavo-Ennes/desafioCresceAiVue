@@ -24,9 +24,6 @@ import PokemonSearchSection from "./components/PokemonSearchSection.vue";
 import Pokelist from "./components/PokeList.vue";
 
 export default {
-  mounted() {
-    console.log("poketeam", this.$store.state.poketeam);
-  },
   components: { PokemonSearchSection, PokemonTeamSection, Pokelist },
 };
 </script>

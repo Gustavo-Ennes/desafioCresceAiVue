@@ -100,10 +100,6 @@ export default {
         `https://pokeapi.co/api/v2/pokemon/${this.search}`
       );
       this.pokemon = pokemon.data;
-      console.log(
-        "🚀 ~ file: PokemonPage.vue:43 ~ beforeMount ~ this.pokemon",
-        this.pokemon
-      );
     } catch (err) {
       console.log("🚀 ~ file: Pokemon.vue:27 ~ beforeMount ~ err", err);
     }

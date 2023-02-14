@@ -10,6 +10,7 @@
           v-model="text"
           type="text"
           placeholder="Name or number"
+          @keyup.prevent.enter="goToPokemonPage"
         />
       </div>
       <div class="col-12 p-2">

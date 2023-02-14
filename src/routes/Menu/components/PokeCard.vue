@@ -62,7 +62,6 @@ export default {
   },
   async beforeCreate() {
     const { data }: any = await axios.get(this.pokemonRef.url);
-    console.log("🚀 ~ file: PokeCard.vue:27 ~ beforeCreate ~ data", data);
     this.pokemon = this.parseData(data);
   },
   computed: {
