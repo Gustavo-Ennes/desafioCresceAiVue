@@ -89,6 +89,7 @@
 import axios, { type AxiosResponse } from "axios";
 import LoadingFrame from "@/components/LoadingFrame.vue";
 import { teamsQuery, deleteTeamMutation, createTeamMutation } from "./query";
+import { getPokemon } from "../utils";
 
 export default {
   async beforeMount(): Promise<void> {
@@ -104,12 +105,12 @@ export default {
     (this.teams as any) = await Promise.all(
       data.data.getTeams.map(async (team: any) => {
         const pokemon = await Promise.all([
-          this.getPokemon(team.slot1),
-          this.getPokemon(team.slot2),
-          this.getPokemon(team.slot3),
-          this.getPokemon(team.slot4),
-          this.getPokemon(team.slot5),
-          this.getPokemon(team.slot6),
+          getPokemon(team.slot1),
+          getPokemon(team.slot2),
+          getPokemon(team.slot3),
+          getPokemon(team.slot4),
+          getPokemon(team.slot5),
+          getPokemon(team.slot6),
         ]);
         const data = { pokemon, ...team };
         return data;
@@ -169,13 +170,6 @@ export default {
         { headers }
       );
       this.teams.splice(this.teams.indexOf(id as never), 1);
-    },
-    async getPokemon(id: number): Promise<any> {
-      const { data }: AxiosResponse = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${id}`
-      );
-      data.src = this.getSrc(data);
-      return data;
     },
   },
   components: { LoadingFrame },

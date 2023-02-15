@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import axios, { type AxiosResponse } from "axios";
+import { getPokemon } from "@/routes/utils";
 import NotFoundImage from "../../../assets/404.png";
 
 export default {
@@ -69,14 +69,7 @@ export default {
   },
   methods: {
     async getPokemon(): Promise<any> {
-      try {
-        const { data }: AxiosResponse = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon/${this.searchTerm}`
-        );
-        this.pokemon = data;
-      } catch (_) {
-        (this.pokemon as any) = { name: "not found" };
-      }
+      this.pokemon = await getPokemon(this.searchTerm);
       this.$emit("selected", {
         id: this.pokemon.id,
         slotId: this.slotId,
